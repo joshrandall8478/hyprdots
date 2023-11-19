@@ -1,5 +1,6 @@
     "custom/spotify": {
         "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player spotify",
+	"exec-if": "pgrep spotify",
         "format": " {}",
         "return-type": "json",
         "on-click": "playerctl play-pause --player spotify",
@@ -7,7 +8,6 @@
         "on-click-middle": "playerctl previous --player spotify",
         "on-scroll-up": "~/.config/hypr/scripts/spotifyvolumecontrol.sh up",
         "on-scroll-down": "~/.config/hypr/scripts/spotifyvolumecontrol.sh down",
-        "max-length": 25,
-        "escape": true
+        "max-length": 25
     },
 
