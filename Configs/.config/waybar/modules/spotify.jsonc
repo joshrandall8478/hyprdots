@@ -3,7 +3,16 @@
         "format": "{} ",
         "return-type": "json",
         "on-click": "playerctl play-pause --player spotify",
+<<<<<<< HEAD
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous"
+=======
+        "on-click-right": "playerctl next --player spotify",
+        "on-click-middle": "playerctl previous --player spotify",
+        "on-scroll-up": "~/.config/hypr/scripts/spotifyvolumecontrol.sh up",
+        "on-scroll-down": "~/.config/hypr/scripts/spotifyvolumecontrol.sh down",
+        "max-length": 25,
+        "escape": true
+>>>>>>> main
     },
 
