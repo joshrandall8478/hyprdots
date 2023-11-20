@@ -76,31 +76,7 @@ ZSH_THEME=(bira)
 plugins=(git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+# In case a command is not found, try to find the package that has it
 # function command_not_found_handler {
 #     local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
 #     printf 'zsh: command not found: %s\n' "$1"
@@ -119,6 +95,13 @@ source $ZSH/oh-my-zsh.sh
 #     fi
 #     return 127
 # }
+
+# Detect the AUR wrapper
+if pacman -Qi yay &>/dev/null ; then
+   aurhelper="yay"
+elif pacman -Qi paru &>/dev/null ; then
+   aurhelper="paru"
+fi
 
 function in {
     local pkg="$1"
