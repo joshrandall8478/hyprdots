@@ -3,7 +3,10 @@
         "all-outputs": true,
         "active-only": false,
         "on-click": "activate",
-        "persistent-workspaces": {
-        }
-    },
+	"persistent_workspaces": { 
+            "1": [],
+            "2": [],
+            "3": []
+	}
+},
 
