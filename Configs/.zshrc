@@ -1,28 +1,28 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH
-export XDG_DATA_DIRS=~/.local/share/applications:$XDG_DATA_DIRS
-#export WAYLAND_DISPLAY=wayland-1
-export BROWSER=mercury-browser
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-#Disable or enable xwayland glamor
-#export XWAYALAND_NO_GLAMOR=1
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-ZSH_THEME=(bira)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -78,10 +78,21 @@ ZSH_THEME=(bira)
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git
+  bundler
+  dotenv
+#  osx
+#  rake
+#  rbenv
+#  ruby
+#  npm
+  zsh-syntax-highlighting
+)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -101,79 +112,26 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
+#
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-#function command_not_found_handler {
-#    local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
-#    printf 'zsh: command not found: %s\n' "$1"
-#    local entries=( ${(f)"$(/usr/bin/pacman -F --machinereadable -- "/usr/bin/$1")"} )
-#    if (( ${#entries[@]} )) ; then
-#        printf "${bright}$1${reset} may be found in the following packages:\n"
-#        local pkg
-#        for entry in "${entries[@]}" ; do
-#            local fields=( ${(0)entry} )
-#            if [[ "$pkg" != "${fields[2]}" ]] ; then
-#               printf "${purple}%s/${bright}%s ${green}%s${reset}\n" "${fields[1]}" "${fields[2]}" "${fields[3]}"
-#           fi
-#           printf '    /%s\n' "${fields[4]}"
-#           pkg="${fields[2]}"
-#       done
-#   fi
-#   return 127
-#}
-
-alias in="yay -S"
-
-
-#function in {
-#    local pkg="$1"
-#    if pacman -Si "$pkg" &>/dev/null ; then
-#        sudo pacman -S "$pkg"
-#    elif pacman -Qi yay &>/dev/null ; then
-#        yay -S "$pkg"
-#    elif pacman -Qi paru &>/dev/null ; then
-#        paru -S "$pkg"
-#    fi
-#}
-
-
-alias ls='eza --icons' # list
-
-alias un='yay -R' # uninstall package
-alias up='yay -Syu' # update system/package/aur
-alias pl='pacman -Qs' # list installed package
-alias pa='pacman -Ss' # list availabe package
-alias pc='sudo pacman -Sc' # remove unused cache
-alias po='pacman -Qtdq | sudo pacman -Rns -' # remove unused packages, also try > pacman -Qqd | pacman -Rsu --print -
-alias vc='code' # gui code editor
-alias fucking='sudo' # because its funny
-
+alias cls=clear
+alias l="exa -l"
+alias ls="exa --icons"
+alias ins="yay -S --needed"
+alias fins="flatpak install"
+alias pacup="sudo pacman -Syu"
+alias flatup="flatpak upgrade"
+alias fullup="yay -Syu && flatpak upgrade"
+alias orphan-be-gone="sudo pacman -Qtdq | sudo pacman -Rns -"
+alias vim=nvim
+alias open=xdg-open
+alias ddtty="docker run -ti --entrypoint /bin/bash"
+alias q=exit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH=$PATH:/home/chrisk/.spicetify
+export PATH=$PATH:/home/chrisk/.spicetify
 
-
-#Display Pokemon
-#pokemon-colorscripts --no-title -r
-
-#Display random gifs
-#kitten icat --align left $(find $HOME/.config/neofetch/gifs/ -name "*.gif" | sort -R | head -1)
-
-
-#Display specs
-#if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-#	pfetch
-#else
-#        neofetch
-#fi
-
-#if [[ "$TERM" == "xterm-kitty" ]] && [ ! -n "$SSH_TTY" ]; then
-#	neofetch
-#else
-#	pfetch
-#fi
-
-
-pfetch
+export QSYS_ROOTDIR="/home/chrisk/.local/share/intelFPGA_lite/22.1std/quartus/sopc_builder/bin"
