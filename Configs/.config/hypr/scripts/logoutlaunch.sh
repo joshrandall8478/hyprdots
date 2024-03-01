@@ -23,6 +23,9 @@ x_mon=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .width')
 y_mon=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .height')
 hypr_scale=$(hyprctl -j monitors | jq '.[] | select (.focused == true) | .scale' | sed 's/\.//')
 
+# Grab monitor ID
+id=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .id')
+
 
 # scale config layout and style
 case $1 in
@@ -57,5 +60,5 @@ export button_rad=$(( hypr_border * 8 ))
 wlStyle=`envsubst < $wlTmplt`
 
 # launch wlogout
-wlogout -b $wlColms -c 0 -r 0 -m 0 --layout $wLayout --css <(echo "$wlStyle") --protocol layer-shell
+wlogout -b $wlColms -c 0 -r 0 -m 0 --layout $wLayout --css <(echo "$wlStyle") --protocol layer-shell -P $id
 
