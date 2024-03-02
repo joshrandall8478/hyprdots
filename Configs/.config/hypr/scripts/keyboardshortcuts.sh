@@ -21,16 +21,18 @@ yad --width=800 --height=600 \
 "󰣇 + J" "Toggle layout" \
 "󰣇 + G" "Toggle window group" \
 "󰣇 + Enter /  + T" "Launch terminal " \
-"󰣇 + E" "Launch file explorer " \
-"󰣇 + C" "Launch editor 󰨞" \
-"󰣇 + F" "Launch browser " \
+"󰣇 + E" "Launch file explorer 󰉋 " \
+"󰣇 + C" "Launch editor 󰨞 " \
+"󰣇 + F" "Launch browser 󰈹 " \
 "󰣇 + Ctrl + Space" "Launch Emoji Selector (rofi)" \
-"󰣇 + A / ALT + Space" "Launch desktop applications (rofi) 󱓞" \
+"󰣇 + A / ALT + Space" "Launch desktop applications (rofi) 󱓞 " \
 "󰣇 + Tab" "Switch open applications" \
 "󰣇 + R" "Browse system files" \
 "Fn + Mute" "Mute audio output toggle" \
 "Fn + Vol+ (hold)" "Decrease volume" \
 "Fn + Vol- (hold)" "Increase volume" \
+"Fn + Shift + Vol+ (hold)" "Decrease Spotify volume 󰓇 " \
+"Fn + Shift + Vol- (hold)" "Increase Spotify volume 󰓇 " \
 "󰣇 + V" "Clipboard history" \
 "PrintScreen" "screenshot all screen" \
 "󰣇 + P" "screenshot active window" \
@@ -56,5 +58,5 @@ yad --width=800 --height=600 \
 "󰣇 + Shift + A" "rofi style select menu" \
 "󰣇 + Shift + G" "launch gamelauncher menu" \
 "󰣇 + K" "Change Keyboard Layout" \
-"󰣇 + Shift + C" "Enable native title bar for VS Code 󰨞" \
-"󰣇 + Alt + C" "Enable custom title bar for VS Code 󰨞" \
+"󰣇 + Shift + C" "Enable native title bar for VS Code 󰨞 " \
+"󰣇 + Alt + C" "Enable custom title bar for VS Code 󰨞 " \

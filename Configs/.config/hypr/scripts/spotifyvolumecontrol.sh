@@ -21,6 +21,12 @@ decrease_volume() {
 }
 
 # check for the argument and perform the corresponding action
+
+if ! pgrep -x "spotify" > /dev/null; then
+	dunstify -a Spotify -r 2 -t 1500 -i /usr/share/icons/Tela-circle-black/scalable/apps/com.spotify.Client.svg "No active spotify player!"
+	exit 0
+fi
+
 case "$1" in
     "up")
         increase_volume
